@@ -1,5 +1,6 @@
 \documentclass[aspectratio=1610,10pt,handout]{beamer}
 \setbeameroption{show notes}
+\usepackage{pgfpages}
 
 %% Additional macro to read local beamer themes from a specific directory
 \makeatletter
@@ -44,6 +45,24 @@
 \setbeamercolor{section in sidebar shaded}{fg=gray}
 \setbeamercolor{subsection in sidebar}{fg=white}
 \setbeamercolor{subsection in sidebar shaded}{fg=gray}
+
+\setbeamersize{text margin left=0.5cm, text margin right=0.5cm}
+
+% Custom template designed only for 2-in-1 handout
+% Notes are served as plain, unformatted page
+\setbeamertemplate{note page}{
+  \vbox{
+    \vskip-2em
+    \hbox{
+      \hskip-3.5em
+      \vbox{
+        \hsize\paperwidth
+        \insertnote
+      }
+    }
+  }
+}
+
 %%%% End of - Template for Blue-Red Color theme %%%%
 % ... and you can of course change a lot more - see the beamer user manual.
 
@@ -100,6 +119,11 @@
 %}
 
 \begin{document}
+
+% For handout 1 slide + 1 note per page
+\pgfpagesuselayout{2 on 1}[a4paper,border shrink=5mm]
+\pgfpagesphysicalpageoptions{logical pages=2, physical height=0.9\pgfphysicalheight, physical width=\pgfphysicalwidth}
+
 % the titlepage
 {\uilogograybg % gray background
 %\uilogotitle	% white background
@@ -146,6 +170,8 @@
     Berikut ini adalah contoh note di dalam slide.
     Apabila dokumen LaTeX ini sudah diatur dengan benar,
     seharusnya akan ada section khusus menampilkan handout berisikan note ini.
+
+    abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode abode 
   }
 \end{frame}
 %%%%%%%%%%%%%%%%
