@@ -81,45 +81,60 @@
 \newcommand{\emphifequal}[3]{\ifthenelse{\equal{#1}{#2}}{\bfseries}{}\hyperlink{lecture#2}{#3}}
 \newcommand{\lectureseriesoverview}[1][]{ % shown at the start and end of each lecture
 	\setlength{\leftmargini}{3.5ex}
-	\begin{fancycolumns}[t,columns=3,animation=none]
+	\begin{fancycolumns}[t,columns=4,animation=none]
 		\mydefinition{\emphifequal{#1}{I}{Part I: Ad-Hoc Approaches for Variability}}{
 			\begin{enumerate}
 				\item {\emphifequal{#1}{1}{Introduction}}
-				\item {\emphifequal{#1}{2}{Runtime Variability and Design Patterns}}
-				\item {\emphifequal{#1}{3}{Compile-Time Variability with Clone-and-Own}}
+				\item {\emphifequal{#1}{2.1}{Runtime Variability and Design Patterns}}
+				\item {\emphifequal{#1}{2.2}{Compile-Time Variability with Clone-and-Own}}
 			\end{enumerate}
 		}
 	\nextcolumn
 		\mydefinition{\emphifequal{#1}{II}{Part II: Modeling \& Implementing Features}}{
 			\begin{enumerate}
 				\setcounter{enumi}{3}
-				\item {\emphifequal{#1}{4}{Feature Modeling}}
-				\item {\emphifequal{#1}{5}{Conditional Compilation}}
-				\item {\emphifequal{#1}{6}{Modular Features}}
-				\item {\emphifequal{#1}{7}{Languages for Features}}
-				\item {\emphifequal{#1}{8}{Development Process}}
+				\item {\emphifequal{#1}{3}{Feature Modeling}}
+				\item {\emphifequal{#1}{3.2}{Conditional Compilation}}
+				\item {\emphifequal{#1}{4.1}{Modular Features}}
+				\item {\emphifequal{#1}{4.2}{Languages for Features}}
+				\item {\emphifequal{#1}{5.1}{Development Process}}
+				\item {\emphifequal{#1}{5.2}{Delta-Oriented Programming}}
+
 			\end{enumerate}
 		}
 	\nextcolumn
-		\mydefinition{\emphifequal{#1}{III}{Part III: Quality Assurance and Outlook}}{
+    	\ifuniversity {indonesia}{
+		\mydefinition{\emphifequal{#1}{III}{Part III: Web Based Product Line Development}}{
 			\begin{enumerate}
-				\setcounter{enumi}{8}
-				\item {\emphifequal{#1}{9}{Feature Interactions}}
-				\item {\emphifequal{#1}{10}{Product-Line Analyses}}
-				\unlessuniversity{wernigerode}{
-					\item {\emphifequal{#1}{11}{Product-Line Testing}}
-				}
-				\ifuniversity{ulm}{
-					\item {\emphifequal{#1}{13}{Current Research Topics}}
-				}
-				\unlessuniversity{wernigerode}{
-					\item {\emphifequal{#1}{12}{Evolution and Maintenance}}
-				}
-				\ifuniversity{wernigerode}{
-					\item {\emphifequal{#1}{14}{Cost Estimation}}
-				}
+				\setcounter{enumi}{6}
+				\item {\emphifequal{#1}{6.1}{Variability Modules for Java}}
+				\item {\emphifequal{#1}{6.1}{UML-DOP Profile}}
+				\item {\emphifequal{#1}{6.2}{IFML-DOP Extension}}
+				\item {\emphifequal{#1}{7}{Model-driven SPLE for Web Development}}
+				\item {\emphifequal{#1}{8}{Web Framework for SPLE}}
+				\item {\emphifequal{#1}{9}{User Interface Development for SPLE}}
 			\end{enumerate}
-		}
+		}}
+	\nextcolumn
+		    \mydefinition{\emphifequal{#1}{IV}{Part IV: Quality Assurance and Outlook}}{
+		\begin{enumerate}
+			\setcounter{enumi}{10}
+		%	\item {\emphifequal{#1}{9}{Feature Interactions}}
+			\item {\emphifequal{#1}{10}{Product-Line Analyses}}
+			\unlessuniversity{wernigerode}{
+				\item {\emphifequal{#1}{11}{Product-Line Testing}}
+			}
+			\ifuniversity{ulm}{
+				\item {\emphifequal{#1}{13}{Current Research Topics}}
+			}
+			\unlessuniversity{wernigerode, indonesia}{
+				\item {\emphifequal{#1}{12}{Evolution and Maintenance}}
+			}
+			\ifuniversity{wernigerode}{
+				\item {\emphifequal{#1}{14}{Cost Estimation}}
+			}
+		\end{enumerate}
+	}
 	\end{fancycolumns}
 }
 
