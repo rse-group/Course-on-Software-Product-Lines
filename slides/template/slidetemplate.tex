@@ -12,7 +12,7 @@
 	\part{}
 	\subtitle{\insertlecturenumber. \insertlecture}
 
-	\contentoverview
+	\contentoverviewindo
 
 	\mode<beamer>{
 		\addtocounter{framenumber}{-1}
@@ -103,6 +103,7 @@
 		\begin{beamercolorbox}[wd=.95\paperwidth,ht=28ex,dp=2ex]{lectureseries}
 			{\footnotesize\lectureseriesoverview[\insertlecturenumber]}
         \end{beamercolorbox}
+    
 		\begin{beamercolorbox}[wd=.95\paperwidth,ht=12ex,dp=2ex]{lecture}
 			\begin{fancycolumns}[t,columns=3,animation=none]
 				\setlength{\parskip}{.5ex}\tableofcontents[sections={1}]
@@ -135,6 +136,38 @@
             \hspace{10pt}
         \end{beamercolorbox}%
     \end{frame}
+}
+
+\newcommand{\contentoverviewindo}{
+	\begin{frame}[plain]
+		\label{lecture\insertlecturenumber}
+		\setbeamerfont{section in toc}{size=\small}\setbeamerfont{subsection in toc}{size=\footnotesize}
+		\begin{beamercolorbox}[wd=.95\paperwidth,ht=38ex,dp=2ex]{lectureseries}
+			{\footnotesize\lectureseriesoverview[\insertlecturenumber]}
+		\end{beamercolorbox}
+		\centering \LARGE\textbf{\inserttitle}
+		\begin{beamercolorbox}[wd=\paperwidth,ht=4.5ex,dp=2ex,center]{logobox}
+			\vspace{-1ex}%
+			\hspace{10pt}
+			\fancy@logoline
+			\hspace{10pt}
+		\end{beamercolorbox}%
+		
+		\vskip0pt plus 1filll
+		\mode<beamer>{\begin{beamercolorbox}[wd=\paperwidth,ht=4.5ex,dp=2ex,right]{titlebox}
+				\LARGE\textbf{\insertsubtitle}\hspace*{20pt}
+		\end{beamercolorbox}}%
+		\mode<handout>{\begin{beamercolorbox}[wd=\paperwidth,ht=4.5ex,dp=2ex,right]{titlebox}
+				\LARGE\textbf{\insertsubtitle\ -- Handout}\hspace*{20pt}
+		\end{beamercolorbox}}%
+		\nointerlineskip%
+		\begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right]{subtitlebox}
+			\small
+			\insertauthor\
+			\ifx \insertdate \empty \else $\vert$ \insertdate \fi
+			\hspace*{20pt}
+		\end{beamercolorbox}%
+	\end{frame}
 }
 \makeatother
 

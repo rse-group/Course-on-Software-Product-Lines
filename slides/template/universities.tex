@@ -27,7 +27,7 @@
 	\ifuniversity{bern}{\author@old{Timo Kehrer, Sandra Greiner}}
 	\ifuniversity{magdeburg}{\author@old{Gunter Saake, Elias Kuiter}}
 	\ifuniversity{wernigerode}{\author@old{Elias Kuiter}}
-	\ifuniversity{indonesia}{\author@old{MRA, DA, AA, EKB, HSF, IAF, IS}}
+	\ifuniversity{indonesia}{\author@old{Reliable Software Engineering Lab}}
 	\ifuniversity{recording}{\author@old{#1}}
 	\ifuniversity{anonymous}{\author@old{Anonymous Authors}}
 	\ifuniversity{}{\author@old{#1}}
@@ -41,6 +41,31 @@
 	\setpicture[550]{jun22-clouds3} % default picture
 }{
 	\hypersetup{linkcolor=foreground, citecolor=red, filecolor=red, runcolor=red, urlcolor=red, colorlinks=true} % emphasizing links, but not when recording
+}
+
+\ifuniversity{indonesia}{
+	\AtEndPreamble{ % copied from https://github.com/sp-uulm/FancyBeamerUULM/blob/main/fancyuulm.sty
+		% uulm color scheme
+		\definecolor{red}{HTML}{ED1C24}
+		\definecolor{green}{HTML}{56AA1C}
+		\definecolor{blue}{HTML}{2E3192}
+		\definecolor{orange}{HTML}{DF6D07}
+		%\definecolor{accent}{HTML}{A9A28D}
+		\definecolor{accent}{HTML}{2E3192}
+		\colorlet{accenttwo}{red} % specify faculty color here: red, green, blue, orange
+		
+		% beamer colors in darkmode
+		\ifdarkmode
+		\colorlet{red}{red!50!white}
+		\colorlet{green}{green!50!white}
+		\colorlet{blue}{blue!50!white}
+		\colorlet{orange}{orange!50!white}
+		\colorlet{accent}{accent!25!darkgray}
+		\colorlet{accenttwo}{red}
+		\fi
+	}
+	
+	\fancylogos{ui-white-id}
 }
 
 \ifuniversity{ulm}{
