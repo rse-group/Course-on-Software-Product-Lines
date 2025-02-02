@@ -119,7 +119,9 @@
 		    \mydefinition{\emphifequal{#1}{IV}{Part IV: Quality Assurance and Outlook}}{
 		\begin{enumerate}
 			\setcounter{enumi}{10}
-		%	\item {\emphifequal{#1}{9}{Feature Interactions}}
+			\unlessuniversity{indonesia}{
+			\item {\emphifequal{#1}{9}{Feature Interactions}}
+			}
 			\item {\emphifequal{#1}{10}{Product-Line Analyses}}
 			\unlessuniversity{wernigerode}{
 				\item {\emphifequal{#1}{11}{Product-Line Testing}}
@@ -127,8 +129,12 @@
 			\ifuniversity{ulm}{
 				\item {\emphifequal{#1}{13}{Current Research Topics}}
 			}
-			\unlessuniversity{wernigerode, indonesia}{
-				\item {\emphifequal{#1}{12}{Evolution and Maintenance}}
+%			\unlessuniversity{wernigerode}{
+%				\item {\emphifequal{#1}{12}{Evolution and Maintenance}}
+%			}
+%		
+			\unlessuniversity{indonesia}{
+			\item {\emphifequal{#1}{12}{Evolution and Maintenance}}
 			}
 			\ifuniversity{wernigerode}{
 				\item {\emphifequal{#1}{14}{Cost Estimation}}
