@@ -1,6 +1,6 @@
 handout?=y# n, y
 darkmode?=n# n, y
-university?=# <empty>, ulm, paderborn, bern, magdeburg, wernigerode, recording, anonymous
+university?=# <empty>, ulm, paderborn, bern, magdeburg, wernigerode, indonesia, recording, anonymous
 
 TEX_FILES := $(wildcard *.tex)
 PDF_FILES = $(TEX_FILES:.tex=.pdf)

@@ -12,4 +12,4 @@
 	url = https://github.com/EagleoutIce/fancyqr.git
 [submodule "FancyBeamer"]
 	path = FancyBeamer
-	url = git@github.com:SEatUPB/FancyBeamer.git
+	url = https://github.com/SEatUPB/FancyBeamer.git
