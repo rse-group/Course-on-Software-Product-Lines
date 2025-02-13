@@ -1,136 +1,16 @@
-\documentclass[aspectratio=1610,10pt,handout]{beamer}
-\setbeameroption{show notes}
+\input{template/options}
 
-%% Additional macro to read local beamer themes from a specific directory
-\makeatletter
-\def\beamer@calltheme#1#2#3{%
-	\def\beamer@themelist{#2}
-	\@for\beamer@themename:=\beamer@themelist\do
-	{\usepackage[{#1}]{\beamer@themelocation/#3\beamer@themename}}}
+\documentclass[
+aspectratio=169, % default is 43
+8pt, % font size, default is 11pt
+]{beamer}
 
-\def\usefolder#1{
-	\def\beamer@themelocation{#1}
-}
-\def\beamer@themelocation{}
+\input{template/lecture}
 
-\usefolder{Theme}
-\usetheme[
-%%% options passed to the outer theme
-%    hidetitle,           % hide the (short) title in the sidebar
-%    hideauthor,          % hide the (short) author in the sidebar
-%    hideinstitute,       % hide the (short) institute in the bottom of the sidebar
-%    shownavsym,          % show the navigation symbols
-%    width=2cm,           % width of the sidebar (default is 2 cm)
-%    hideothersubsections,% hide all subsections but the subsections in the current section
-%    hideallsubsections,  % hide all subsections
-    left               % right of left position of sidebar (default is right)
-%%% options passed to the color theme
-%    lightheaderbg,       % use a light header background
-  ]{FasilkomUIsidebar}
-
-% If you want to change the colors of the various elements in the theme, edit and uncomment the following lines
-%%%% Template for Blue-Red Color theme %%%%
-% Header color (Red)
-\definecolor{beamer@headercolor}{RGB}{200,0,0}% red
-%% Change the bar and sidebar colors:
-\setbeamercolor{FasilkomUIsidebar}{fg=beamer@barcolor,bg=csui@red}
-\setbeamercolor{sidebar}{bg=csui@blue}
-%% Change the color of the structural elements:
-\setbeamercolor{structure}{fg=gray}
-%% Change the frame title text color:
-\setbeamercolor{frametitle}{bg=csui@red}
-%% Sidebar font color
-\setbeamercolor{section in sidebar}{fg=white}
-\setbeamercolor{section in sidebar shaded}{fg=gray}
-\setbeamercolor{subsection in sidebar}{fg=white}
-\setbeamercolor{subsection in sidebar shaded}{fg=gray}
-%%%% End of - Template for Blue-Red Color theme %%%%
-% ... and you can of course change a lot more - see the beamer user manual.
-
-
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage[T1]{fontenc}
-% Or whatever. Note that the encoding and the font should match. If T1
-% does not look nice, try deleting the line with the fontenc.
-\usepackage{helvet}
-
-% colored hyperlinks
-\newcommand{\chref}[2]{%
-  \href{#1}{{\usebeamercolor[bg]{FasilkomUIsidebar}#2}}%
-}
-
-\newcommand{\lc}{$\lambda$ {\it calculus}\ }
-
-\title[SPLE 2024]% optional, use only with long paper titles
-{Software Product Line Engineering 2024}
-
-\subtitle{SPLE}  % could also be a conference name
-
-%\date{Rabu, 23 Oktober 2022}
-
-\author[MRA] % optional, use only with lots of authors
-{
-  Maya R. A. Setyautami\\
-  \href{mailto:mayaretno@cs.ui.ac.id}{{\tt mayaretno@cs.ui.ac.id}}
-}
-% - Give the names in the same order as they appear in the paper.
-% - Use the \inst{?} command only if the authors have different
-%   affiliation. See the beamer manual for an example
-
-\institute[
-%  {\includegraphics[scale=0.2]{aau_segl}}\\ %insert a company, department or university logo
-  Fakultas Ilmu Komputer\\
-  Universitas Indonesia
-] % optional - is placed in the bottom of the sidebar on every slide
-{% is placed on the title page
-  Fakultas Ilmu Komputer\\
-  Universitas Indonesia
-
-  %there must be an empty line above this line - otherwise some unwanted space is added between the university and the country (I do not know why;( )
-}
-
-% specify a logo on the titlepage (you can specify additional logos an include them in
-% institute command below
-%\pgfdeclareimage[height=1.5cm]{titlepagelogo}{AAUgraphics/aau_logo_new} % placed on the title page
-%\pgfdeclareimage[height=1.5cm]{titlepagelogo2}{graphics/aau_logo_new} % placed on the title page
-%\titlegraphic{% is placed on the bottom of the title page
-%  \pgfuseimage{titlepagelogo}
-%%  \hspace{1cm}\pgfuseimage{titlepagelogo2}
-%}
+%\includeonlylecture{introduction}
 
 \begin{document}
-% the titlepage
-{\uilogograybg % gray background
-%\uilogotitle	% white background
-\setbeamercolor{title}{fg=white}	% font color of the presentation title is changable depending on the background color
-\setbeamercolor{frametitle}{use=structure,fg=black!80,bg=beamer@barcolor}
-\begin{frame}[plain,noframenumbering] % the plain option removes the sidebar and header from the title page
-  \titlepage
-\end{frame}}
-%%%%%%%%%%%%%%%%
-
-\begin{frame}{Agenda}{}
-\tableofcontents
-\end{frame}
-%%%%%%%%%%%%%%%%
-
-\section{Pengantar}
-
-\begin{frame}{Perubahan Paradigma Berfikir}{}
-
-	\begin{block}{Alvin Toffler, Powershift: Knowledge, Wealth, and Power at the Edge of the 21st Century, 1990 }
-		\pause
-		The illiterate of the 21st century will not be those who cannot read and write, but those who cannot learn, unlearn, and relearn.
-	\end{block}
-
-	\begin{itemize}
-		\pause
-		\item Sebelum mempelajari syntax, semantic dari bahasa pemrograman yang baru, perlu dipelajari dulu paradigma dan filosofi bahasa tersebut
-		\pause
-		\item Untuk dapat mempelajari yang baru kita harus perlu dapat melupakan (mengesampingkan) yang lama dulu. (Minimal untuk sementara)
-	\end{itemize}
-
-\end{frame}
-
+	
+	\input{content/vmj}
+	
 \end{document}
