@@ -4,7 +4,7 @@
 \begin{frame}{Framework with Plug-Ins}
 	\begin{fancycolumns}[b]
 		\begin{definition}{Framework and Hot Spot \mysource{\fospl\mypages{80--81}}}
-			A \emph{framework} is a set of classes that embodies an abstract design for solutions to a family of related problems, and supports reuse at a larger granularity than classes. A framework is open for \emph{extension} at explicit \emph{hot spots} (aka.\ extention point).
+			A \emph{framework} is a set of classes that embodies an abstract design for solutions to a family of related problems, and supports reuse at a larger granularity than classes. A framework is open for \emph{extension} at explicit \emph{hot spots} (aka.\ extension point).
 		\end{definition}
 		\begin{definition}{Plug-In \mysource{\fospl\mypages{80--81}}}
 			A \emph{plug-in} extends hot spots of a [...] framework with custom behavior. A plug-in can be separately compiled and deployed.	
@@ -113,16 +113,16 @@ public class Calc extends JFrame {
 		JPanel p = new JPanel(new BorderLayout());
 		p.setBorder(new BevelBorder(/* ... */));
 		JButton button = new JButton();
-		button.setText(@"calculate"@);
+		button.setText(~"calculate"~);
 		p.add(button, BorderLayout.EAST);
 		textfield = new JTextField("");
-		textfield.setText(@"10 / 2 + 6"@);
+		textfield.setText(~"10 / 2 + 6"~);
 		textfield.setPreferredSize(new Dimension(350, 40));
 		p.add(textfield, BorderLayout.WEST);
 		button.addActionListener(new ActionListener() 
-			{ @/* calculate */@ });
+			{ ~/* calculate */~ });
 		this.setContentPane(p);
-		this.setTitle(@"My Great Calculator"@);
+		this.setTitle(~"My Great Calculator"~);
 		this.pack();
 		// ...
 	}
@@ -140,16 +140,16 @@ public class Ping extends JFrame {
 		JPanel p = new JPanel(new BorderLayout());
 		p.setBorder(new BevelBorder(/* ... */));
 		JButton button = new JButton();
-		button.setText(@"ping"@);
+		button.setText(~"ping"~);
 		p.add(button, BorderLayout.EAST);
 		textfield = new JTextField("");
-		textfield.setText(@"127.0.0.1"@);
+		textfield.setText(~"127.0.0.1"~);
 		textfield.setPreferredSize(new Dimension(350, 40));
 		p.add(textfield, BorderLayout.WEST);
 		button.addActionListener(new ActionListener() 
-			{ @/* calculate */@ });
+			{ ~/* calculate */~ });
 		this.setContentPane(p);
-		this.setTitle(@"Ping"@);
+		this.setTitle(~"Ping"~);
 		this.pack();	
 		// ...
 	}
@@ -169,29 +169,29 @@ public class Ping extends JFrame {
 public class Application extends JFrame {
 	private Plugin plugin;
 	// ...
-	public Application(@Plugin plugin@) {
-		@this.plugin = plugin;
-		plugin.setApplication(this);@
+	public Application(~Plugin plugin~) {
+		~this.plugin = plugin;
+		plugin.setApplication(this);~
 		init();
 	}
 	protected void init() {
 		JPanel p = new JPanel(new BorderLayout());
 		p.setBorder(new BevelBorder(/*...*/);
 		JButton button = new JButton();
-		button.setText(@plugin.getButtonText()@);
+		button.setText(~plugin.getButtonText()~);
 		p.add(button, BorderLayout.EAST);
 		textfield = new JTextField("");
-		textfield.setText(@plugin.getInitialText()@);
+		textfield.setText(~plugin.getInitialText()~);
 		textfield.setPreferredSize(new Dimension(200, 20));
 		p.add(textfield, BorderLayout.WEST);		
-		button.addActionListener(/*... @plugin.buttonClicked();@ ...*/);
+		button.addActionListener(~/*... plugin.buttonClicked(); ...*/~);
 		this.setContentPane(p);		
-		this.setTitle(@plugin.getApplicationTitle()@);
+		this.setTitle(~plugin.getApplicationTitle()~);
 		// ...
 	}
-	@public String getInput() {
+	~public String getInput() {
 		return textfield.getText();
-	}@
+	}~
 }
 \end{codetight}
 		\nextcolumn
@@ -239,12 +239,12 @@ public class CalcPlugin implements Plugin {
 			application implementation hidden from plug-in
 		\end{note}
 \begin{codetight}[basicstyle=\tiny]{}
-public class Application extends JFrame @implements InputProvider@ {
+public class Application extends JFrame ~implements InputProvider~ {
 	private Plugin plugin;
 	// ...
 	public Application(Plugin plugin) {
 		this.plugin = plugin;
-		@plugin.setInputProvider(this);@
+		~plugin.setInputProvider(this);~
 		init();
 	}
 	protected void init() {
@@ -278,22 +278,22 @@ public interface Plugin {
 	String getButtonText();
 	String getInitialText();
 	void buttonClicked();
-	@void setInputProvider(InputProvider p);@
+	~void setInputProvider(InputProvider p);~
 }
 \end{codetight}
 \begin{codetight}[basicstyle=\tiny]{}
 public class CalcPlugin implements Plugin {
-	@private InputProvider inputProvider;@
+	~private InputProvider inputProvider;~
 
 	public String getApplicationTitle() { /*...*/ }
 	public String getButtonText() { /*...*/ }
 	public String getInitialText() { /*...*/ }
 	public void buttonClicked() {
-		calculate(@inputProvider.getInput()@);
+		calculate(~inputProvider.getInput()~);
 	}
-	@public void setInputProvider(InputProvider p) {
+	~public void setInputProvider(InputProvider p) {
 		inputProvider = p;
-	}@
+	}~
 	private void calculate(String expression) {
 		/* calculate */
 	}
@@ -417,16 +417,16 @@ public class Application {
 	\nextcolumn
 		\begin{example}{}
 			\begin{itemize}
-				\item Other IDEs (e.g., IntelliJ, ...)
-				\item Unit test frameworks (e.g., JUnit, ...)
-				\item Frontend frameworks (e.g., React, Angular ...)
-				\item Backend frameworks (e.g., Spring Boot, Ruby on Rails, Django, ...) 
-				\item Multimedia frameworks (e.g., DirectX, ...)
-				\item Raster/vector graphics editors (e.g., Adobe Photoshop, MS Visio, ...)
+				\item Other IDEs (e.g., IntelliJ)
+				\item Unit test frameworks (e.g., JUnit)
+				\item Frontend frameworks (e.g., React, Angular)
+				\item Backend frameworks (e.g., Spring Boot, Ruby on Rails, Django) 
+				\item Multimedia frameworks (e.g., DirectX)
+				\item Raster/vector graphics editors (e.g., Adobe Photoshop, MS Visio)
 				\item Instant messenger frameworks (e.g., Miranda, Trillian)
 				\item Compiler frameworks (e.g., LLVM, Polyglot, abc, JustAddJ)
-				\item Web browsers (e.g., Firefox, ...)
-				\item E-Mail clients (e.g., Thunderbird, ...)
+				\item Web browsers (e.g., Firefox)
+				\item E-Mail clients (e.g., Thunderbird)
 				\item etc.
 			\end{itemize}
 		\end{example}		
@@ -440,15 +440,11 @@ public class Application {
 	\frametitle<5>{\myframetitle}
 	\begin{fancycolumns}[widths={40},animation=none]
 		\begin{example}{Recap: Service-Based Implementation}
-			\pic[width=.23\linewidth,height=1.0cm]{lego_components} 
-				\vspace*{\fill}
-					$+$ 
-				\vspace*{\fill}	
-			\pic[width=.23\linewidth,height=1.0cm]{lego_orchestration}
-				\vspace*{\fill}
-					$=$ 
-				\vspace*{\fill}	
-			\pic[width=.3\linewidth,height=1.0cm]{lego_product}
+			\raisebox{-0.4cm}{\pic[width=.23\linewidth,height=1.0cm]{lego_components}}
+			$+$ 
+			\raisebox{-0.4cm}{\pic[width=.23\linewidth,height=1.0cm]{lego_orchestration}}
+			$=$
+			\raisebox{-0.4cm}{\pic[width=.3\linewidth,height=1.0cm]{lego_product}}
 		\end{example}
 		\begin{example}{Still needs some specification of ``composition'' (cf.\ orchestration vs.\ choreography)}
 			\centering
@@ -467,15 +463,11 @@ public class Application {
 				neither glue code nor explicit service composition required
 		\end{note}
 		\begin{example}{}
-			\pic[width=.31\linewidth,height=1.75cm]{lego_product_partial} 
-				\vspace*{\fill}
-					$+$ 
-				\vspace*{\fill}	
-			\pic[width=.27\linewidth,height=1.75cm]{lego_components}
-				\vspace*{\fill}
-					$=$ 
-				\vspace*{\fill}	
-			\pic[width=.31\linewidth,height=1.75cm]{lego_product}
+			\raisebox{-0.8cm}{\pic[width=.29\linewidth,height=1.75cm]{lego_product_partial}}
+			$+$
+			\raisebox{-0.8cm}{\pic[width=.27\linewidth,height=1.75cm]{lego_components}}
+			$=$
+			\raisebox{-0.8cm}{\pic[width=.29\linewidth,height=1.75cm]{lego_product}}
 		\end{example}
 		\pause
 		\begin{note}{}
@@ -488,24 +480,24 @@ public class Application {
 	\begin{fancycolumns}
 \begin{codetight}[basicstyle=\tiny]{}
 public class Graph {
-	@private List<GraphPlugin> plugins = new ArrayList<GraphPlugin>();@
+	~private List<GraphPlugin> plugins = new ArrayList<GraphPlugin>();~
 	// ...	
-	@public void registerPlugin(GraphPlugin p){
+	~public void registerPlugin(GraphPlugin p){
 		plugins.add(p);
-	}@
+	}~
 	public void addNode(int id, Color c){
 		Node n = new Node(id);
-		@notifyAdd(n, c);@
+		~notifyAdd(n, c);~
 		nodes.add(n);
 	}
 	public void print() {
 		for (Node n : nodes) {
-			@notifyPrint(n);@
+			~notifyPrint(n);~
 			// ...
 		}
 		// ...
 	}
-	@private void notifyAdd(Node n, Color c) {
+	~private void notifyAdd(Node n, Color c) {
 		for (GraphPlugin p : plugins) {
 			p.aboutToAdd(n, c);
 		}
@@ -514,7 +506,7 @@ public class Graph {
 		for (GraphPlugin p : plugins) {
 			p.aboutToPrint(n);
 		}
-	}@
+	}~
 	// ...
 }
 \end{codetight}
@@ -536,7 +528,7 @@ public class ColorPlugin implements GraphPlugin {
 	}
 	
 	public void aboutToAdd(Edge e, Weight w) {
-		~// do nothing~
+		// do nothing
 	}
 	
 	public void aboutToPrint(Node n) {
@@ -545,7 +537,7 @@ public class ColorPlugin implements GraphPlugin {
 	}
 	
 	public void aboutToPrint(Edge e) {
-		~// do nothing~
+		// do nothing
 	}
 }
 \end{codetight}
