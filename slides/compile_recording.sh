@@ -1,33 +1,33 @@
 #!/usr/bin/env bash
-# Cloned and owned from compile_paderborn.sh and simplified for my (Elias) needs.
+# Usage
+#   ./compile_recording.sh -options <nr>
+# where options is a string consisting of the characters l, o, f, r
+#   l = lecture
+#   o = overview
+# and <nr> is the number of the lecture you want to compile.
+# The output will be written to the value stored in "slide_path" below.
+# Example, to compile the lecture 3 and also prepare the overview slides (i.e., a big pdf containing lectures 1-3), you can run
+#   ./compile_paderborn.sh -lo 3
+# Important: Run this script from the directory the script is in. Otherwise paths for output pdfs might be wrong.
 
 lecture_names=("introduction" "runtime" "cloneandown" "modeling" "conditional" "modular" "languages" "process" "interactions" "analyses" "testing" "evonance")
-university=magdeburg
+university=recording
 semester=2024w
 
-archive_path="$(dirname "$0")/../../teaching-spl-archive/"
-
-upper_first () {
-    printf "%s" "${1%"${1#?}"}" | tr '[:lower:]' '[:upper:]' && printf "%s" "${1#?}"
-}
+outpath="../../teaching-spl-slides/${semester}t/"
 
 make_lecture () {
-	outpath="${archive_path}${semester}-$(upper_first "$university")/"
-    mkdir -p "${outpath}animated"
-    
     latexmk -quiet -silent -C ${TEXFILE}
-    make ${lecture}.pdf university=${university} handout=n darkmode=n
-    rm ${lecture}.*.vrb
-    mv -f ${lecture}.pdf ${outpath}animated/${lecture}.pdf
-
     make ${lecture}.pdf university=${university} handout=y darkmode=n
     rm ${lecture}.*.vrb
     mv -f ${lecture}.pdf ${outpath}${lecture}.pdf
+
+    make ${lecture}.pdf university=${university} handout=y darkmode=y
+    rm ${lecture}.*.vrb
+    cp -f ${lecture}.pdf ${outpath}${lecture}-dark.pdf
 }
 
 make_overview () {
-	outpath="${archive_path}${semester}-$(upper_first "$university")/"
-
     cur_lectures=$(printf ",%s" "${lecture_names[@]:0:$lecture_number}")
     cur_lectures=${cur_lectures:1}
 
@@ -52,7 +52,7 @@ make_overview () {
 
 is_make_lecture=0
 is_make_overview=0
-while getopts "lo" opt
+while getopts "lrof" opt
 do
     case $opt in
     (l) is_make_lecture=1 ;;
@@ -61,18 +61,10 @@ do
     esac
 done
 
-if [[ -z "$*" ]]; then
-    for i in "${!lecture_names[@]}"; do
-        "$0" -l "$(($i+1))"
-    done
-    "$0" -o "$(($i+1))"
-    exit 0
-fi
-
-
 shift $(($OPTIND - 1))
 lecture_number=$1
 
+# Return if first argument is not a positive integer
 number_re='^[0-9]+$'
 if ! [[ ${lecture_number} =~ ${number_re} ]] ; then
     echo "ERROR: ${lecture_number} is not a valid integer";
@@ -80,9 +72,10 @@ if ! [[ ${lecture_number} =~ ${number_re} ]] ; then
 fi
 
 lecture_index=$((lecture_number-1))
-lecture_number_formatted=$(printf "%02d" ${lecture_number})
-lecture=$lecture_number_formatted-${lecture_names[$lecture_index]}
+lecture_number_formated=$(printf "%02d" ${lecture_number})
+lecture=$lecture_number_formated-${lecture_names[$lecture_index]}
 
+# Return if tex file does not exist
 TEXFILE=${lecture}.tex
 if test -f "${TEXFILE}"; then
     echo $lecture
@@ -96,7 +89,6 @@ if [ "$#" -ge 2 ]; then
     echo "Using university ${university}"
 fi
 
-cd "$(dirname "$0")" || exit
-
 if test ${is_make_lecture} -gt 0 ; then make_lecture ; fi
 if test ${is_make_overview} -gt 0 ; then make_overview ; fi
+

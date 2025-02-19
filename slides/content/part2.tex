@@ -6,6 +6,7 @@
 \ifuniversity{bern}{\setpicture[50]{unibe_00517_200609_1200}}
 \ifuniversity{paderborn}{\date{May 8, 2024}\setpicture[350]{image9}}
 \ifuniversity{indonesia}{\date{February 17, 2025}}
+\ifuniversity{braunschweig}{\date{November 6, 2024}}
 
 \author{Elias Kuiter, Thomas Thüm, Timo Kehrer}
 \lecture{Feature Modeling}{modeling}
@@ -127,11 +128,12 @@
 \ifuniversity{magdeburg}{\setpicture[300]{magdeburg-river}\setcopyright{}}
 \ifuniversity{bern}{\setpicture[10]{unibe_00213_200601_1200}}
 \ifuniversity{paderborn}{\date{May 15, 2024}\setpicture[150]{image10}}
+\ifuniversity{braunschweig}{\date{November 13, 2024}}
 
 \author{Thomas Thüm, Elias Kuiter, Timo Kehrer}
 \lecture{Conditional Compilation}{conditional}
 
-% TODO shall we use conditional compilation with build systems (preprocessors) instead? would require numerous changes in this lecture
+% TODO we should use conditional compilation with build systems (preprocessors) instead. would require numerous changes in this lecture. problem is that conditional compilation is currently introduced in Part II only, which needs to be somehow moved to Part I then.
 \section{Features with Build Systems}
 \input{content/05a-buildsystems}
 \lessonslearned{
@@ -153,8 +155,13 @@
 %		\small\featureDiagramConfigurableDatabase
 %	\end{center}
 	\begin{enumerate}
-		\item How are features implemented with build systems different from clone-and-own with build systems?
-		\item What is the respective granularity?
+		\item[] What are differences of the following two implementation techniques for variability?
+			\begin{enumerate}
+				\item[(a)] clone-and-own with build systems
+				\item[(b)] features with build systems
+			\end{enumerate}
+		% TODO removed the next task, as the term granularity has not been defined yet
+		%\item What is the respective granularity?
 	\end{enumerate}
 
 	\uploadpractice
@@ -237,6 +244,7 @@
 \ifuniversity{magdeburg}{\setpicture[35]{ovgu-autumn4}\setcopyright{Photo: Hannah Theile (OVGU)}}
 \ifuniversity{bern}{\setpicture[1]{unibe_00214_200601_1200}}
 \ifuniversity{paderborn}{\date{May 22, 2024}\setpicture[175]{image11}}
+\ifuniversity{braunschweig}{\date{November 20, 2024}}
 
 \author{Timo Kehrer, Thomas Thüm, Elias Kuiter}
 \lecture{Modular Features}{modular}
@@ -338,6 +346,7 @@
 \ifuniversity{magdeburg}{\setpicture[100]{ovgu-winter1}\setcopyright{Photo: Hannah Theile (OVGU)}}
 \ifuniversity{bern}{\setpicture[1]{unibe_00068_200601_1200}}
 \ifuniversity{paderborn}{\date{May 29, 2024}\setpicture[25]{pressimage1}}
+\ifuniversity{braunschweig}{\date{November 27, 2024}}
 
 \author{Timo Kehrer, Thomas Thüm, Elias Kuiter}
 \lecture{Languages for Features}{languages}
@@ -445,6 +454,7 @@
 \ifuniversity{bern}{\setpicture[1]{unibe_201109_00026_1200}}
 \ifuniversity{paderborn}{\date{June 5, 2024}\setpicture[200]{pressimage2}}
 \ifuniversity{indonesia}{\date{March 3, 2025}}
+\ifuniversity{braunschweig}{\date{December 4, 2024}}
 
 \author{Thomas Thüm, Elias Kuiter, Timo Kehrer}
 \lecture{Development Process}{process}

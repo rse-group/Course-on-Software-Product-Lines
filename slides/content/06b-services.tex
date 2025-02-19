@@ -100,7 +100,7 @@
 				\item \emph{Continuous integration/deployment}: Microservices can be deployed independently of each other. %(i.e., each microservice has its own CI/CD pipeline).
 				\item \emph{Heterogeneity}: Each microservice can be implemented using its own technology stack. %(team preferences, adoption of new technologies, etc.).
 				\item \emph{Fault tolerance}: The crash of a single microservice should not lead to a crash of the entire system. %(cf. design for failure).
-				\item \emph{Efficiency}: Configuration of execution environment can be optimized per microservice.
+				\item \emph{Efficiency}: Configuration of execution environment can be optimized per microservice. % TODO [ek] this is hard to understand. what is the difference to heterogeneity above?
 				\item \emph{Modernization}: A microservice can be easily replaced by an alternative one (even re-implemented from scratch).
 			\end{itemize}
 		\end{note}
@@ -119,15 +119,11 @@
 	\frametitle<4>{\myframetitle}
 	\begin{fancycolumns}[widths={40},animation=none]
 		\begin{example}{Recap: Component-Based Implementation}
-			\pic[width=.24\linewidth,height=1.0cm]{lego_components} 
-				\vspace*{\fill}
-					$+$ 
-				\vspace*{\fill}	
-			\pic[width=.24\linewidth,height=1.0cm]{lego_glue}
-				\vspace*{\fill}
-					$=$ 
-				\vspace*{\fill}	
-			\pic[width=.3\linewidth,height=1.0cm]{lego_product}
+				\raisebox{-0.4cm}{\pic[width=.24\linewidth,height=1.0cm]{lego_components}} 
+				$+$ 
+				\raisebox{-0.4cm}{\pic[width=.24\linewidth,height=1.0cm]{lego_glue}}
+				$=$ 
+				\raisebox{-0.4cm}{\pic[width=.3\linewidth,height=1.0cm]{lego_product}}
 		\end{example}	
 		\begin{example}{Plenty of Glue Code}
 			\centering
@@ -146,15 +142,11 @@
 			``Standardized'' service composition instead of highly individual glue code.
 		\end{note}
 		\begin{example}{}
-			\pic[width=.27\linewidth,height=1.75cm]{lego_components} 
-				\vspace*{\fill}
-					$+$ 
-				\vspace*{\fill}	
-			\pic[width=.27\linewidth,height=1.75cm]{lego_orchestration}
-				\vspace*{\fill}
-					$=$ 
-				\vspace*{\fill}	
-			\pic[width=.35\linewidth,height=1.75cm]{lego_product}
+			\raisebox{-0.8cm}{\pic[width=.27\linewidth,height=1.75cm]{lego_components}}
+			$+$
+			\raisebox{-0.8cm}{\pic[width=.27\linewidth,height=1.75cm]{lego_orchestration}}
+			$=$
+			\raisebox{-0.8cm}{\pic[width=.31\linewidth,height=1.75cm]{lego_product}}
 		\end{example}
 	\end{fancycolumns}	
 \end{frame}
