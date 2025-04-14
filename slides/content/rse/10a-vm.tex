@@ -1,15 +1,53 @@
 \begin{frame}{Recap: Modular Features}
-	
-	
+		\begin{definition}{Modularization}
+			consistent application of \emph{information hiding} and \emph{data encapsulation} to achieve:
+			\begin{itemize}
+				\item strong logical connection between the inner parts of a module (high cohesion)
+				\item precisely defined, minimal interfaces (low coupling)
+			\end{itemize}						
+		\end{definition}
+		\pause
+		\begin{note}{Modularization and Software Product Lines}
+		\begin{itemize}
+			\item \emph{reuse}: parts of the software can be {\em reused}
+			\item \emph{alternatives}: modules can be {\em exchanged by alternative implementations}
+			\item \emph{variability}: modules can be {\em reassembled in a new context} (e.g., in other projects)
+		\end{itemize}
+		\end{note}
 
 \end{frame}
+
+\begin{frame}{Recap: Modular Features}
+	
+	\begin{note}{Existing Approaches}
+		\begin{itemize}
+			\item Components: every feature is implemented by a dedicated component.
+			\newline Feature selection determines which components shall be integrated to form an application
+			\newline Requires glue code and customization to compose services.
+			\item Services: features are implemented as services.
+			\newline Feature selection determines the services to be composed.
+			\newline Requires orchestration or choreography to compose services.
+			\item Framework with Plug-Ins: features are implemented by different plug-ins
+			\newline Feature selection determines the plug-ins to be loaded and registered
+			\newline Requires \emph{preplanning} for possible future extensions 
+		\end{itemize}
+	\end{note}
+\end{frame}
+
 
 
 \begin{frame}{Software Modules}
 	\begin{fancycolumns}
 
 	\begin{definition}{Software modules ...}
-		\end{definition}
+	\end{definition}
+	\nextcolumn
+	\pause
+			\begin{note}{Challenges}
+		\begin{itemize}
+			\MajorChallengesOfComponents
+		\end{itemize}
+	\end{note}
 	\end{fancycolumns}
 \end{frame}
 
