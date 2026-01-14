@@ -41,6 +41,7 @@ Further contributors and former project members:
 - University of Magdeburg, Germany: Implementation Techniques for Software Product Lines (Winter Term 2022/23, 2023/24, 2024/25)
 - Harz University of Applies Sciences, Wernigerode, Germany: Requirements Engineering II - Software Product Lines (Summer Term 2023)
 - University of Ulm, Germany: Software Product Lines (Summer Term 2023)
+- Universitas Indonesia, Indonesia: Software Product Lines (Semester 2 2024/25)
 
 ## Getting Started
 
