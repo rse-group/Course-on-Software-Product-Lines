@@ -1,7 +1,12 @@
 \subsection{Handcrafting and Customization}
 \begin{frame}{What do these examples have in common?}
 	\begin{fancycolumns}[columns=3,widths={35,28},animation=none]
-		\ifuniversity{indonesia}{\pic[width=\linewidth]{wedding-id}}[\pic[width=\linewidth]{wedding}]
+		\ifuniversity[
+			{\pic[width=\linewidth,trim=25 200 25 25,clip]{wedding}}
+		]{indonesia}{
+			\pic[width=\linewidth,trim=25 200 25 25,clip]{wedding-id}
+		}
+
 		\pic[width=\linewidth]{shoes}
 	\nextcolumn
 		\pic[width=\linewidth,trim=85 0 0 0]{eiffel-tower}
