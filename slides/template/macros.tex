@@ -89,42 +89,52 @@
 		\mydefinition{\emphifequal{#1}{I}{Part I: Ad-Hoc Approaches for Variability}}{
 			\begin{enumerate}
 				\item {\emphifequal{#1}{1}{Introduction}}
-				\item [2.1] {\emphifequal{#1}{2}{Runtime Variability and Design Patterns}}
-				\item [2.2] {\emphifequal{#1}{3}{Compile-Time Variability with Clone-and-Own}}
+				\item {\emphifequal{#1}{2}{Runtime Variability and Design Patterns}}
+				\item {\emphifequal{#1}{3}{Compile-Time Variability with Clone-and-Own}}
 			\end{enumerate}
 		}
 	\nextcolumn
 		\mydefinition{\emphifequal{#1}{II}{Part II: Modeling \& Implementing Features}}{
 			\begin{enumerate}
 				\setcounter{enumi}{3}
-				\item [3.1] {\emphifequal{#1}{4}{Feature Modeling}}
-				\item [3.2]{\emphifequal{#1}{5}{Conditional Compilation}}
-				\item [4.1]{\emphifequal{#1}{6}{Modular Features}}
-				\item [4.2]{\emphifequal{#1}{7}{Languages for Features}}
-				\item [5.1]{\emphifequal{#1}{8}{Development Process}}
-				\item [5.2]{\emphifequal{#1}{9}{Delta-Oriented Programming}}
-
+				\item {\emphifequal{#1}{4}{Feature Modeling}}
+				\item {\emphifequal{#1}{5}{Conditional Compilation}}
+				\item {\emphifequal{#1}{6}{Modular Features}}
+				\item {\emphifequal{#1}{7}{Languages for Features}}
+				\item {\emphifequal{#1}{8}{Development Process}}
+				\ifuniversity{indonesia}{\item {\emphifequal{#1}{9}{Delta-Oriented Programming}}}
 			\end{enumerate}
 		}
+	\ifuniversity{indonesia}{
 	\nextcolumn
-    	\ifuniversity {indonesia}{
 		\mydefinition{\emphifequal{#1}{III}{Part III: Web Based Product Line Development}}{
 			\begin{enumerate}
-				\setcounter{enumi}{6}
-				\item [6.1] {\emphifequal{#1}{11}{Variability Modules for Java}}
-				\item [6.2] {\emphifequal{#1}{12}{UML-DOP Profile}}
-				\item [6.3]{\emphifequal{#1}{13}{IFML-DOP Extension}}
-				\item [7]{\emphifequal{#1}{14}{Model-driven SPLE for Web Development}}
-				\item [8.1]{\emphifequal{#1}{15}{Web Framework for SPLE}}
-				\item [8.2]{\emphifequal{#1}{16}{User Interface Development for SPLE}}
+				\setcounter{enumi}{9}
+				\item {\emphifequal{#1}{10}{Variability Modules for Java}}
+				\item {\emphifequal{#1}{11}{UML-DOP Profile}}
+				\item {\emphifequal{#1}{12}{IFML-DOP Extension}}
+				\item {\emphifequal{#1}{13}{Model-driven SPLE for Web Development}}
+				\item {\emphifequal{#1}{14}{Web Framework for SPLE}}
+				\item {\emphifequal{#1}{15}{User Interface Development for SPLE}}
 			\end{enumerate}
-		}}
+		}
+	}
+	% TODO: Make separate QA & Outlook part for UI in the Indonesia condition
+	%       That is, create a copy of the next column section into the ifuniversity block
+	%       Then, preserve the original, non-Indonesia, from the upstream
 	\nextcolumn
-		    \mydefinition{\emphifequal{#1}{IV}{Part IV: Quality Assurance and Outlook}}{
+		\mydefinition{
+			\ifuniversity[{
+				\emphifequal{#1}{IV}{Part III: Quality Assurance and Outlook}
+				\setcounter{enumi}{8}
+			}]{indonesia}{
+				\emphifequal{#1}{IV}{Part IV: Quality Assurance and Outlook}
+				\setcounter{enumi}{15}
+			}
+		}{
 		\begin{enumerate}
-			\setcounter{enumi}{8}
 			\unlessuniversity{indonesia}{
-			\item {\emphifequal{#1}{17}{Feature Interactions}}
+				\item {\emphifequal{#1}{17}{Feature Interactions}}
 			}
 			\item {\emphifequal{#1}{17}{Product-Line Analyses}}
 			\unlessuniversity{wernigerode}{
